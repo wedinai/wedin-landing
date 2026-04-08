@@ -4,19 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>wedin.ai — Start with the music.</title>
+<meta name="description" content="An AI-powered wedding music planning companion. Tell us how you want the day to feel. We map every moment and generate a complete brief for your coordinator and acts.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
+
+  /* ── RESET + ROOT ── */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
   :root {
     --cream: #FAF7F2;
-    --navy: #1C2B3A;
-    --gold: #C4922A;
-    --grey: #6B6560;
+    --navy:  #1C2B3A;
+    --gold:  #C4922A;
+    --grey:  #6B6560;
     --white: #FFFFFF;
   }
-
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
   html { scroll-behavior: smooth; }
 
@@ -24,25 +27,108 @@
     background: var(--cream);
     color: var(--navy);
     font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
 
+  /* ── TYPOGRAPHY HELPERS ── */
+  .label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 24px;
+  }
+
+  .gold { color: var(--gold); }
+
+  /* ── BUTTONS ── */
+  .btn-primary {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--cream);
+    background: var(--navy);
+    border: none;
+    border-radius: 10px;
+    padding: 0 32px;
+    height: 48px;
+    line-height: 48px;
+    cursor: pointer;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: box-shadow 0.2s, transform 0.15s;
+    box-shadow: 0 2px 8px rgba(28,43,58,0.18);
+    white-space: nowrap;
+  }
+  .btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(28,43,58,0.26);
+    transform: translateY(-1px);
+  }
+
+  .btn-primary-light {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--navy);
+    background: var(--cream);
+    border: none;
+    border-radius: 10px;
+    padding: 0 32px;
+    height: 48px;
+    line-height: 48px;
+    cursor: pointer;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: box-shadow 0.2s, transform 0.15s;
+    box-shadow: 0 2px 8px rgba(28,43,58,0.12);
+    white-space: nowrap;
+  }
+  .btn-primary-light:hover {
+    box-shadow: 0 6px 20px rgba(28,43,58,0.18);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--navy);
+    text-decoration: none;
+    transition: gap 0.2s;
+    white-space: nowrap;
+  }
+  .btn-ghost:hover { gap: 14px; }
+  .btn-ghost .arr { color: var(--gold); font-size: 18px; }
+
   /* ── NAV ── */
   nav {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     z-index: 100;
-    padding: 24px 48px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: rgba(250, 247, 242, 0.92);
+    padding: 20px 48px;
+    background: rgba(250,247,242,0.94);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(28, 43, 58, 0.06);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  nav.scrolled {
+    border-bottom-color: rgba(28,43,58,0.08);
+    box-shadow: 0 2px 16px rgba(28,43,58,0.06);
   }
 
   .wordmark {
@@ -54,86 +140,28 @@
     text-decoration: none;
   }
 
-  .nav-cta {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--cream);
-    background: var(--navy);
-    border: none;
-    border-radius: 8px;
-    padding: 11px 24px;
-    cursor: pointer;
-    text-decoration: none;
-    box-shadow: 0 2px 8px rgba(28, 43, 58, 0.18);
-    transition: box-shadow 0.2s, transform 0.15s;
-    display: inline-block;
-  }
-
-  .nav-cta:hover {
-    box-shadow: 0 4px 16px rgba(28, 43, 58, 0.24);
-    transform: translateY(-1px);
-  }
-
   /* ── HERO ── */
   .hero {
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     padding: 120px 48px 80px;
-    position: relative;
-    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -20%;
-    right: -10%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(196, 146, 42, 0.06) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: 10%;
-    left: -5%;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(28, 43, 58, 0.04) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .hero-label {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 32px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards 0.2s;
-  }
+  .hero-text { position: relative; z-index: 1; }
 
   .hero-headline {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(52px, 8vw, 96px);
+    font-size: clamp(56px, 7.5vw, 96px);
     font-weight: 300;
     line-height: 1.0;
     letter-spacing: -0.02em;
     color: var(--navy);
-    max-width: 780px;
     margin-bottom: 32px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards 0.4s;
-  }
-
-  .hero-headline .gold {
-    color: var(--gold);
   }
 
   .hero-sub {
@@ -141,120 +169,120 @@
     font-weight: 400;
     line-height: 1.7;
     color: var(--grey);
-    max-width: 480px;
+    max-width: 460px;
     margin-bottom: 48px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards 0.6s;
   }
 
   .hero-actions {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 28px;
     flex-wrap: wrap;
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards 0.8s;
   }
 
-  .btn-primary {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--cream);
-    background: var(--navy);
-    border: none;
-    border-radius: 10px;
-    padding: 16px 36px;
-    cursor: pointer;
-    text-decoration: none;
-    box-shadow: 0 2px 8px rgba(28, 43, 58, 0.2), 0 1px 2px rgba(28, 43, 58, 0.1);
-    transition: box-shadow 0.2s, transform 0.15s;
-    display: inline-block;
-    letter-spacing: 0.01em;
-  }
-
-  .btn-primary:hover {
-    box-shadow: 0 6px 20px rgba(28, 43, 58, 0.25);
-    transform: translateY(-1px);
-  }
-
-  .btn-ghost {
-    font-size: 15px;
-    font-weight: 400;
-    color: var(--navy);
-    text-decoration: none;
+  .hero-image-wrap {
     display: flex;
     align-items: center;
-    gap: 8px;
-    transition: gap 0.2s;
+    justify-content: center;
   }
 
-  .btn-ghost:hover { gap: 12px; }
-
-  .btn-ghost .arrow {
-    color: var(--gold);
-    font-size: 18px;
-  }
-
-  /* ── SCROLL INDICATOR ── */
-  .scroll-hint {
-    position: absolute;
-    bottom: 40px;
-    left: 48px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards 1.2s;
-  }
-
-  .scroll-line {
-    width: 32px;
-    height: 1px;
-    background: rgba(28, 43, 58, 0.2);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .scroll-line::after {
-    content: '';
-    position: absolute;
-    left: -100%;
-    top: 0;
+  #hero-image-placeholder {
     width: 100%;
-    height: 100%;
-    background: var(--gold);
-    animation: scanline 2s ease-in-out infinite 1.5s;
+    max-width: 520px;
+    aspect-ratio: 4 / 5;
+    background: var(--white);
+    border: 1px solid rgba(196,146,42,0.25);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 40px rgba(28,43,58,0.07);
   }
 
-  .scroll-text {
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+  .placeholder-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
     color: var(--grey);
+    opacity: 0.5;
+    letter-spacing: 0.04em;
   }
 
-  /* ── HOW IT WORKS ── */
-  .section {
+  /* ── SOCIAL PROOF BAR ── */
+  .proof-bar {
+    background: var(--cream);
+    border-top: 1px solid rgba(28,43,58,0.07);
+    border-bottom: 1px solid rgba(28,43,58,0.07);
+    padding: 56px 48px;
+  }
+
+  .proof-bar-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    text-align: center;
+  }
+
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 6vw, 72px);
+    font-weight: 300;
+    line-height: 1;
+    color: var(--navy);
+    letter-spacing: -0.02em;
+    display: block;
+    margin-bottom: 12px;
+  }
+  .stat-number.gold { color: var(--gold); }
+
+  .stat-body {
+    font-size: 14px;
+    color: var(--grey);
+    line-height: 1.65;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  /* ── PROBLEM ── */
+  .problem-section {
     padding: 120px 48px;
+    max-width: 900px;
+    margin: 0 auto;
   }
 
-  .section-label {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 24px;
-  }
-
-  .section-heading {
+  .problem-headline {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(36px, 5vw, 56px);
     font-weight: 300;
+    line-height: 1.15;
+    color: var(--navy);
+    margin-bottom: 40px;
+    letter-spacing: -0.01em;
+  }
+
+  .problem-body {
+    font-size: 17px;
+    color: var(--grey);
+    line-height: 1.75;
+    max-width: 640px;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .how-section {
+    padding: 120px 48px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .how-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 300;
     line-height: 1.1;
     color: var(--navy);
-    max-width: 600px;
+    max-width: 520px;
     margin-bottom: 80px;
   }
 
@@ -262,36 +290,16 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 48px;
-    max-width: 960px;
-  }
-
-  .step {
-    position: relative;
   }
 
   .step-number {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 64px;
+    font-size: 72px;
     font-weight: 300;
-    color: rgba(28, 43, 58, 0.06);
+    color: rgba(28,43,58,0.06);
     line-height: 1;
-    margin-bottom: 16px;
     letter-spacing: -0.02em;
-  }
-
-  .step-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 24px;
-    font-weight: 400;
-    color: var(--navy);
     margin-bottom: 12px;
-    line-height: 1.2;
-  }
-
-  .step-body {
-    font-size: 15px;
-    line-height: 1.7;
-    color: var(--grey);
   }
 
   .step-divider {
@@ -301,239 +309,240 @@
     margin-bottom: 20px;
   }
 
-  /* ── MOMENTS ── */
+  .step-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .step-body {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--grey);
+  }
+
+  /* ── NINE MOMENTS ── */
   .moments-section {
-    background: var(--navy);
     padding: 120px 48px;
-    position: relative;
-    overflow: hidden;
+    max-width: 1100px;
+    margin: 0 auto;
   }
 
-  .moments-section::before {
-    content: '';
-    position: absolute;
-    top: -30%;
-    right: -5%;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(196, 146, 42, 0.08) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .moments-section .section-label { color: var(--gold); }
-
-  .moments-section .section-heading {
-    color: var(--cream);
+  .moments-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 5.5vw, 60px);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--navy);
+    max-width: 520px;
     margin-bottom: 64px;
+    letter-spacing: -0.01em;
   }
 
   .moments-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 2px;
-    max-width: 960px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
   }
 
   .moment-card {
-    background: rgba(250, 247, 242, 0.04);
-    border: 1px solid rgba(250, 247, 242, 0.08);
-    border-radius: 12px;
-    padding: 28px 20px;
-    transition: background 0.3s, border-color 0.3s;
+    background: var(--white);
+    border: 1px solid rgba(28,43,58,0.06);
+    border-radius: 16px;
+    padding: 28px 24px;
+    transition: box-shadow 0.2s, border-color 0.2s;
     cursor: default;
   }
-
   .moment-card:hover {
-    background: rgba(196, 146, 42, 0.08);
-    border-color: rgba(196, 146, 42, 0.2);
-  }
-
-  .moment-icon {
-    font-size: 22px;
-    margin-bottom: 16px;
-    display: block;
+    box-shadow: 0 4px 24px rgba(28,43,58,0.07);
+    border-color: rgba(196,146,42,0.2);
   }
 
   .moment-name {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
-    font-weight: 400;
-    color: var(--cream);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--navy);
     margin-bottom: 8px;
     line-height: 1.2;
   }
 
   .moment-desc {
-    font-size: 12px;
-    color: rgba(250, 247, 242, 0.45);
+    font-size: 13px;
+    color: var(--grey);
     line-height: 1.6;
   }
 
-  /* ── PROOF ── */
-  .proof-section {
+  /* ── WHAT YOU GET ── */
+  .deliverables-section {
     padding: 120px 48px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
+    background: var(--cream);
+    border-top: 1px solid rgba(28,43,58,0.07);
+  }
+
+  .deliverables-inner {
     max-width: 1100px;
     margin: 0 auto;
   }
 
-  .proof-quote {
+  .deliverables-headline {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(28px, 3vw, 42px);
+    font-size: clamp(36px, 5vw, 52px);
     font-weight: 300;
-    font-style: italic;
-    line-height: 1.3;
+    line-height: 1.1;
     color: var(--navy);
-    position: relative;
-    padding-left: 32px;
-  }
-
-  .proof-quote::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 8px;
-    bottom: 8px;
-    width: 2px;
-    background: var(--gold);
-  }
-
-  .proof-details { }
-
-  .proof-stat {
-    margin-bottom: 48px;
-  }
-
-  .proof-number {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 64px;
-    font-weight: 300;
-    color: var(--navy);
-    line-height: 1;
-    letter-spacing: -0.02em;
-  }
-
-  .proof-number span {
-    color: var(--gold);
-  }
-
-  .proof-desc {
-    font-size: 15px;
-    color: var(--grey);
-    line-height: 1.6;
-    margin-top: 8px;
-    max-width: 280px;
-  }
-
-  /* ── CTA SECTION ── */
-  .cta-section {
-    padding: 120px 48px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .cta-section::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 800px;
-    height: 400px;
-    background: radial-gradient(ellipse, rgba(196, 146, 42, 0.07) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .cta-heading {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(40px, 6vw, 72px);
-    font-weight: 300;
-    line-height: 1.05;
-    color: var(--navy);
-    max-width: 700px;
-    margin: 0 auto 24px;
+    max-width: 560px;
+    margin-bottom: 64px;
     letter-spacing: -0.01em;
   }
 
-  .cta-heading .gold { color: var(--gold); }
-
-  .cta-sub {
-    font-size: 17px;
-    color: var(--grey);
-    line-height: 1.7;
-    max-width: 440px;
-    margin: 0 auto 48px;
+  .deliverables-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
   }
 
-  .cta-input-row {
+  .deliverable-card {
+    background: var(--white);
+    border: 1px solid rgba(28,43,58,0.06);
+    border-radius: 16px;
+    padding: 32px 28px;
+  }
+
+  .deliverable-icon {
+    width: 40px;
+    height: 40px;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .deliverable-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+
+  .deliverable-body {
+    font-size: 15px;
+    color: var(--grey);
+    line-height: 1.7;
+  }
+
+  /* ── PRICING ── */
+  .pricing-section {
+    background: var(--navy);
+    padding: 120px 48px;
+    text-align: center;
+  }
+
+  .pricing-inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .pricing-section .label { color: var(--cream); justify-content: center; }
+
+  .pricing-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--cream);
+    margin-bottom: 48px;
+    letter-spacing: -0.01em;
+  }
+
+  .pricing-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(72px, 10vw, 104px);
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .pricing-note {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(250,247,242,0.65);
+    margin-bottom: 48px;
+  }
+
+  .pricing-list {
+    list-style: none;
+    text-align: left;
+    max-width: 340px;
+    margin: 0 auto 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .pricing-list li {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    color: var(--cream);
     display: flex;
     align-items: center;
     gap: 12px;
-    max-width: 440px;
-    margin: 0 auto 16px;
-    background: var(--white);
-    border: 1.5px solid rgba(28, 43, 58, 0.1);
-    border-radius: 12px;
-    padding: 6px 6px 6px 20px;
-    box-shadow: 0 4px 24px rgba(28, 43, 58, 0.07);
-    transition: border-color 0.2s, box-shadow 0.2s;
   }
 
-  .cta-input-row:focus-within {
-    border-color: var(--gold);
-    box-shadow: 0 0 0 3px rgba(196, 146, 42, 0.1), 0 4px 24px rgba(28, 43, 58, 0.07);
-  }
-
-  .cta-input {
-    flex: 1;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
-    color: var(--navy);
-    background: transparent;
-    border: none;
-    outline: none;
-    padding: 10px 0;
-  }
-
-  .cta-input::placeholder { color: var(--grey); opacity: 0.6; }
-
-  .cta-submit {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
+  .pricing-list li::before {
+    content: '✓';
+    color: var(--gold);
     font-weight: 500;
-    color: var(--cream);
-    background: var(--navy);
-    border: none;
-    border-radius: 8px;
-    padding: 12px 24px;
-    cursor: pointer;
-    white-space: nowrap;
-    box-shadow: 0 2px 8px rgba(28, 43, 58, 0.2);
-    transition: box-shadow 0.2s, transform 0.15s;
+    font-size: 14px;
+    flex-shrink: 0;
   }
 
-  .cta-submit:hover {
-    box-shadow: 0 4px 16px rgba(28, 43, 58, 0.25);
-    transform: translateY(-1px);
+  .pricing-small {
+    font-size: 13px;
+    color: rgba(250,247,242,0.45);
+    margin-top: 16px;
+    line-height: 1.6;
   }
 
-  .cta-note {
-    font-size: 12px;
+  /* ── CLOSING CTA ── */
+  .closing-section {
+    padding: 160px 48px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .closing-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5.5vw, 60px);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--navy);
+    margin-bottom: 24px;
+    letter-spacing: -0.01em;
+  }
+
+  .closing-sub {
+    font-size: 17px;
     color: var(--grey);
-    opacity: 0.7;
+    line-height: 1.7;
+    margin-bottom: 48px;
   }
 
   /* ── FOOTER ── */
   footer {
     padding: 40px 48px;
-    border-top: 1px solid rgba(28, 43, 58, 0.08);
+    border-top: 1px solid rgba(28,43,58,0.08);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 24px;
   }
 
   .footer-wordmark {
@@ -542,93 +551,174 @@
     font-weight: 500;
     letter-spacing: 0.04em;
     color: var(--navy);
+    text-decoration: none;
   }
 
   .footer-tagline {
-    font-size: 13px;
-    color: var(--grey);
-    font-style: italic;
     font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    font-style: italic;
+    color: var(--grey);
   }
 
-  .footer-note {
+  .footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+  }
+
+  .footer-copy {
     font-size: 12px;
     color: var(--grey);
-    opacity: 0.6;
+    opacity: 0.65;
   }
 
+  .footer-links {
+    display: flex;
+    gap: 16px;
+  }
+
+  .footer-links a {
+    font-size: 12px;
+    color: var(--grey);
+    opacity: 0.65;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .footer-links a:hover { opacity: 1; }
+
   /* ── DIVIDER ── */
-  .section-divider {
-    width: 100%;
+  .divider {
     height: 1px;
-    background: rgba(28, 43, 58, 0.07);
+    background: rgba(28,43,58,0.07);
     margin: 0 48px;
-    width: calc(100% - 96px);
   }
 
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
+    from { opacity: 0; transform: translateY(20px); }
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  @keyframes scanline {
-    0%   { left: -100%; }
-    100% { left: 100%; }
-  }
+  .fade-in { opacity: 0; animation: fadeUp 0.7s ease forwards; }
+  .fade-in.d1 { animation-delay: 0.15s; }
+  .fade-in.d2 { animation-delay: 0.3s; }
+  .fade-in.d3 { animation-delay: 0.45s; }
+  .fade-in.d4 { animation-delay: 0.6s; }
 
   /* ── MOBILE ── */
   @media (max-width: 768px) {
-    nav { padding: 20px 24px; }
-    .hero { padding: 100px 24px 80px; }
-    .section { padding: 80px 24px; }
-    .moments-section { padding: 80px 24px; }
-    .cta-section { padding: 80px 24px; }
-    footer { padding: 32px 24px; flex-direction: column; gap: 16px; text-align: center; }
+    nav { padding: 18px 24px; }
 
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 96px 24px 64px;
+      gap: 48px;
+      min-height: auto;
+    }
+
+    .hero-image-wrap { order: -1; }
+
+    #hero-image-placeholder {
+      max-width: 100%;
+      aspect-ratio: 3 / 2;
+    }
+
+    .proof-bar { padding: 48px 24px; }
+    .proof-bar-inner {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      max-width: 100%;
+    }
+
+    .problem-section { padding: 80px 24px; }
+    .how-section { padding: 80px 24px; }
     .steps { grid-template-columns: 1fr; gap: 40px; }
-    .moments-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-    .moments-grid .moment-card:last-child { grid-column: 1 / -1; }
-    .proof-section { grid-template-columns: 1fr; gap: 48px; padding: 80px 24px; }
-    .scroll-hint { display: none; }
 
-    .cta-input-row { flex-direction: column; padding: 16px; gap: 12px; }
-    .cta-submit { width: 100%; padding: 14px; }
+    .moments-section { padding: 80px 24px; }
+    .moments-grid { grid-template-columns: 1fr; gap: 12px; }
+
+    .deliverables-section { padding: 80px 24px; }
+    .deliverables-grid { grid-template-columns: 1fr; gap: 20px; }
+
+    .pricing-section { padding: 80px 24px; }
+
+    .closing-section { padding: 96px 24px; }
+
+    footer {
+      padding: 32px 24px;
+      flex-direction: column;
+      text-align: center;
+      gap: 16px;
+    }
+
+    .footer-right { align-items: center; }
+
+    .divider { margin: 0 24px; }
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fade-in { animation: none; opacity: 1; }
+    html { scroll-behavior: auto; }
+  }
+
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
+<!-- ── NAV ── -->
+<nav id="main-nav">
   <a href="#" class="wordmark">wedin.ai</a>
-  <a href="#early-access" class="nav-cta">Get early access</a>
+  <a href="https://wedin-ai-app.netlify.app" class="btn-primary">Start planning →</a>
 </nav>
 
-<!-- HERO -->
+<!-- ── HERO ── -->
 <section class="hero">
-  <p class="hero-label">Wedding music planning</p>
-  <h1 class="hero-headline">
-    Start with<br><span class="gold">the music.</span>
-  </h1>
-  <p class="hero-sub">The music at your wedding will outlast the flowers, the food, and the décor. It lives in the memory of everyone in the room. Plan it like it matters.</p>
-  <div class="hero-actions">
-    <a href="#early-access" class="btn-primary">Start planning</a>
-    <a href="#how-it-works" class="btn-ghost">See how it works <span class="arrow">→</span></a>
+  <div class="hero-text">
+    <span class="label fade-in d1">Wedding music planning</span>
+    <h1 class="hero-headline fade-in d2">
+      Start with<br><span class="gold">the music.</span>
+    </h1>
+    <p class="hero-sub fade-in d3">The music at your wedding will outlast the flowers, the food, and the décor. It lives in the memory of everyone in the room. Plan it like it matters.</p>
+    <div class="hero-actions fade-in d4">
+      <a href="https://wedin-ai-app.netlify.app" class="btn-primary">Start planning →</a>
+      <a href="#how-it-works" class="btn-ghost">See how it works <span class="arr">→</span></a>
+    </div>
   </div>
-
-  <div class="scroll-hint">
-    <div class="scroll-line"></div>
-    <span class="scroll-text">Scroll</span>
+  <div class="hero-image-wrap">
+    <div id="hero-image-placeholder">
+      <span class="placeholder-text">[ photo coming soon ]</span>
+    </div>
   </div>
 </section>
 
-<div class="section-divider"></div>
+<!-- ── SOCIAL PROOF BAR ── -->
+<div class="proof-bar">
+  <div class="proof-bar-inner">
+    <div>
+      <span class="stat-number">100+</span>
+      <p class="stat-body">Weddings behind wedin.ai. Every question comes from real experience of what goes right — and what goes wrong.</p>
+    </div>
+    <div>
+      <span class="stat-number gold">R699</span>
+      <p class="stat-body">One-time fee. Your complete wedding music plan, ready to send.</p>
+    </div>
+  </div>
+</div>
 
-<!-- HOW IT WORKS -->
-<section class="section" id="how-it-works">
-  <p class="section-label">How it works</p>
-  <h2 class="section-heading">25 minutes. Every moment mapped.</h2>
+<!-- ── THE PROBLEM ── -->
+<section class="problem-section">
+  <h2 class="problem-headline">Most couples spend more time choosing a napkin colour than planning their music.</h2>
+  <p class="problem-body">The music is the only thing every single guest experiences together, from the moment they walk in to the moment the last person leaves the floor. It deserves more than a last-minute playlist.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── HOW IT WORKS ── -->
+<section class="how-section" id="how-it-works">
+  <span class="label">How it works</span>
+  <h2 class="how-headline">25 minutes. Every moment mapped.</h2>
 
   <div class="steps">
     <div class="step">
@@ -641,91 +731,176 @@
       <div class="step-number">02</div>
       <div class="step-divider"></div>
       <h3 class="step-title">We map every moment</h3>
-      <p class="step-body">From the processional to the last song, every musical chapter of your day gets planned with intention. Nothing left to chance. Nothing left to "we'll figure it out."</p>
+      <p class="step-body">From the processional to the last song, every musical moment of your day gets planned with intention. Nine moments. Nothing left to chance.</p>
     </div>
     <div class="step">
       <div class="step-number">03</div>
       <div class="step-divider"></div>
       <h3 class="step-title">Your brief, ready to send</h3>
-      <p class="step-body">A written music brief mapped to your timeline. Your planner gets a copy. Your acts get exactly what they need to get it right. The back-and-forth stops.</p>
+      <p class="step-body">A written music brief mapped to your timeline. A Spotify playlist of your wedding soundtrack. Your coordinator gets a copy. Your acts get exactly what they need to deliver it right.</p>
     </div>
   </div>
 </section>
 
-<div class="section-divider"></div>
+<div class="divider"></div>
 
-<!-- MOMENTS -->
+<!-- ── NINE MOMENTS ── -->
 <section class="moments-section">
-  <p class="section-label">Every moment, considered</p>
-  <h2 class="section-heading" style="color: var(--cream);">Five chapters.<br>One unforgettable day.</h2>
+  <span class="label">Every moment, considered</span>
+  <h2 class="moments-headline">Nine moments.<br>One complete day.</h2>
 
   <div class="moments-grid">
     <div class="moment-card">
-      <span class="moment-icon">♩</span>
+      <p class="moment-name">Guest Arrivals</p>
+      <p class="moment-desc">The first musical impression of the day</p>
+    </div>
+    <div class="moment-card">
       <p class="moment-name">Ceremony</p>
-      <p class="moment-desc">Processional, signing, recessional — the most remembered moments of the day.</p>
+      <p class="moment-desc">The moment everyone watches in silence</p>
     </div>
     <div class="moment-card">
-      <span class="moment-icon">◇</span>
       <p class="moment-name">Pre-drinks</p>
-      <p class="moment-desc">The room fills. The mood is set. Most couples never plan this moment.</p>
+      <p class="moment-desc">Where the day's energy is set</p>
     </div>
     <div class="moment-card">
-      <span class="moment-icon">○</span>
+      <p class="moment-name">Your Entrance</p>
+      <p class="moment-desc">The transition into the reception</p>
+    </div>
+    <div class="moment-card">
       <p class="moment-name">Dinner</p>
-      <p class="moment-desc">Background or featured? The answer changes everything about the act you book.</p>
+      <p class="moment-desc">90 minutes that carry the evening forward</p>
     </div>
     <div class="moment-card">
-      <span class="moment-icon">◈</span>
-      <p class="moment-name">First dance</p>
-      <p class="moment-desc">The one song everyone remembers. It deserves more than a last-minute decision.</p>
+      <p class="moment-name">Speeches</p>
+      <p class="moment-desc">Where personalisation lives</p>
     </div>
     <div class="moment-card">
-      <span class="moment-icon">▲</span>
-      <p class="moment-name">Reception</p>
-      <p class="moment-desc">When do you want the floor full? What's the last song of the night?</p>
+      <p class="moment-name">First Dance</p>
+      <p class="moment-desc">Your first three minutes as a married couple</p>
+    </div>
+    <div class="moment-card">
+      <p class="moment-name">Dancing</p>
+      <p class="moment-desc">The arc that guests remember most</p>
+    </div>
+    <div class="moment-card">
+      <p class="moment-name">Last Song</p>
+      <p class="moment-desc">The emotional punctuation mark of the day</p>
     </div>
   </div>
 </section>
 
-<!-- PROOF -->
-<section class="proof-section">
-  <div class="proof-quote">
-    "The music is the only thing every single guest experiences together, from the moment you walk in to the moment the last person leaves the floor."
-  </div>
-  <div class="proof-details">
-    <div class="proof-stat">
-      <div class="proof-number">100<span>+</span></div>
-      <p class="proof-desc">Weddings behind wedin.ai. Every question in the session comes from real experience of what goes right — and what goes wrong.</p>
-    </div>
-    <div class="proof-stat">
-      <div class="proof-number">25<span>min</span></div>
-      <p class="proof-desc">From first question to complete music plan. Couples arrive at the music conversation knowing exactly what they want.</p>
+<div class="divider"></div>
+
+<!-- ── WHAT YOU GET ── -->
+<section class="deliverables-section">
+  <div class="deliverables-inner">
+    <span class="label">What you get</span>
+    <h2 class="deliverables-headline">Everything you need. Nothing you don't.</h2>
+
+    <div class="deliverables-grid">
+
+      <div class="deliverable-card">
+        <svg class="deliverable-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="8" y="4" width="24" height="32" rx="3" stroke="currentColor" stroke-width="1.8"/>
+          <line x1="13" y1="13" x2="27" y2="13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="13" y1="19" x2="27" y2="19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="13" y1="25" x2="21" y2="25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <h3 class="deliverable-title">Your music brief</h3>
+        <p class="deliverable-body">A complete written plan for every moment — specific enough for your coordinator to act on from day one.</p>
+      </div>
+
+      <div class="deliverable-card">
+        <svg class="deliverable-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="15" cy="14" r="5" stroke="currentColor" stroke-width="1.8"/>
+          <circle cx="25" cy="14" r="5" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M5 34c0-5.523 4.477-10 10-10h10c5.523 0 10 4.477 10 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <h3 class="deliverable-title">Coordinator's brief</h3>
+        <p class="deliverable-body">A separate document for your planner. Your taste, your preferences, your approach — translated into language they can work from immediately. Most planners have never received anything like it.</p>
+      </div>
+
+      <div class="deliverable-card">
+        <svg class="deliverable-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="20" cy="20" r="13" stroke="currentColor" stroke-width="1.8"/>
+          <circle cx="20" cy="20" r="4" stroke="currentColor" stroke-width="1.8"/>
+          <line x1="20" y1="7" x2="20" y2="13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="20" y1="27" x2="20" y2="33" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="7" y1="20" x2="13" y2="20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="27" y1="20" x2="33" y2="20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <h3 class="deliverable-title">Your wedding playlist</h3>
+        <p class="deliverable-body">A Spotify playlist of your wedding soundtrack — the songs you named, plus songs that sound like your day. Listen while you plan.</p>
+      </div>
+
+      <div class="deliverable-card">
+        <svg class="deliverable-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M16 28V14l16-4v14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="12" cy="28" r="4" stroke="currentColor" stroke-width="1.8"/>
+          <circle cx="28" cy="24" r="4" stroke="currentColor" stroke-width="1.8"/>
+        </svg>
+        <h3 class="deliverable-title">Act instructions</h3>
+        <p class="deliverable-body">Specific briefs for every musician and DJ on your day. They arrive knowing exactly what you want.</p>
+      </div>
+
     </div>
   </div>
 </section>
 
-<div class="section-divider"></div>
+<!-- ── PRICING ── -->
+<section class="pricing-section">
+  <div class="pricing-inner">
+    <span class="label" style="color:rgba(250,247,242,0.55); display:block; margin-bottom:24px;">Simple pricing</span>
+    <h2 class="pricing-headline">One fee. Your complete music plan.</h2>
 
-<!-- CTA -->
-<section class="cta-section" id="early-access">
-  <p class="section-label">Early access</p>
-  <h2 class="cta-heading">Your wedding deserves <span class="gold">music that means something.</span></h2>
-  <p class="cta-sub">wedin.ai is launching soon in South Africa. Join the early access list and be the first to plan your day.</p>
+    <span class="pricing-amount">R699</span>
+    <p class="pricing-note">One-time payment. No subscription.</p>
 
-  <div class="cta-input-row">
-    <input class="cta-input" type="email" placeholder="Your email address" />
-    <button class="cta-submit">Join the list</button>
+    <ul class="pricing-list">
+      <li>Discovery session — free, no account needed</li>
+      <li>Nine moment deep-dives</li>
+      <li>Complete music brief</li>
+      <li>Coordinator's brief</li>
+      <li>Spotify wedding playlist</li>
+      <li>Act-specific instructions</li>
+    </ul>
+
+    <a href="https://wedin-ai-app.netlify.app" class="btn-primary-light">Start planning →</a>
+    <p class="pricing-small">Start with the free discovery session.<br>Pay only when you're ready to build your plan.</p>
   </div>
-  <p class="cta-note">No spam. Just an early invite when we're ready.</p>
 </section>
 
-<!-- FOOTER -->
+<!-- ── CLOSING CTA ── -->
+<section class="closing-section">
+  <h2 class="closing-headline">This might be one of the best conversations you have while planning your wedding.</h2>
+  <p class="closing-sub">Find a quiet hour, just the two of you.</p>
+  <a href="https://wedin-ai-app.netlify.app" class="btn-primary">Start planning →</a>
+</section>
+
+<!-- ── FOOTER ── -->
 <footer>
-  <span class="footer-wordmark">wedin.ai</span>
+  <a href="#" class="footer-wordmark">wedin.ai</a>
   <span class="footer-tagline">Start with the music.</span>
-  <span class="footer-note">© 2026 wedin.ai · South Africa</span>
+  <div class="footer-right">
+    <span class="footer-copy">© 2026 wedin.ai · South Africa</span>
+    <div class="footer-links">
+      <a href="/terms">Terms</a>
+      <a href="/privacy">Privacy</a>
+    </div>
+  </div>
 </footer>
+
+<script>
+  // Nav scroll shadow
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 8) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  }, { passive: true });
+</script>
 
 </body>
 </html>

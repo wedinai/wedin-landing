@@ -400,10 +400,6 @@
   }
 
   .moments-header {
-    display: grid;
-    grid-template-columns: 55% 45%;
-    gap: 48px;
-    align-items: end;
     margin-bottom: 64px;
   }
 
@@ -423,7 +419,8 @@
     font-weight: 400;
     color: var(--grey);
     line-height: 1.6;
-    margin: 0;
+    max-width: 520px;
+    margin: 24px 0 0;
   }
 
   .moments-grid {
@@ -753,8 +750,7 @@
 
     .editorial-placeholder { min-height: 280px; }
     .moments-section { padding: 56px 24px; }
-    .moments-header { grid-template-columns: 1fr; gap: 0; }
-    .moments-subhead { font-size: 16px; margin-top: 20px; }
+    .moments-subhead { font-size: 16px; }
     .moments-grid { grid-template-columns: 1fr; gap: 12px; }
 
     .deliverables-section { padding: 56px 24px; }

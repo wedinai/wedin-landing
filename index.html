@@ -210,16 +210,50 @@
     background: var(--cream);
     border-top: 1px solid rgba(0,0,0,0.08);
     border-bottom: 1px solid rgba(0,0,0,0.08);
-    padding: 48px 48px;
+    padding: 64px 48px;
   }
 
   .proof-bar-inner {
-    max-width: 760px;
+    max-width: 640px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 56px;
     text-align: center;
+  }
+
+  .testimonial-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .testimonial-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 2.5vw, 22px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .testimonial-attr {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--grey);
+    letter-spacing: 0.02em;
+    margin: 0;
+  }
+
+  .stat-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
   }
 
   .stat-number {
@@ -230,7 +264,6 @@
     color: var(--navy);
     letter-spacing: -0.02em;
     display: block;
-    margin-bottom: 12px;
   }
   .stat-number.gold { color: var(--gold); }
 
@@ -238,7 +271,7 @@
     font-size: 14px;
     color: var(--grey);
     line-height: 1.65;
-    max-width: 280px;
+    max-width: 320px;
     margin: 0 auto;
   }
 
@@ -690,12 +723,8 @@
       min-height: 320px;
     }
 
-    .proof-bar { padding: 36px 24px; }
-    .proof-bar-inner {
-      grid-template-columns: 1fr;
-      gap: 40px;
-      max-width: 100%;
-    }
+    .proof-bar { padding: 48px 24px; }
+    .proof-bar-inner { gap: 40px; }
 
     .problem-section { padding: 56px 24px; }
     .problem-inner { grid-template-columns: 1fr; gap: 32px; }
@@ -769,14 +798,22 @@
 <!-- ── SOCIAL PROOF BAR ── -->
 <div class="proof-bar">
   <div class="proof-bar-inner">
-    <div>
-      <span class="stat-number">100+</span>
+
+    <div class="testimonial-block">
+      <p class="testimonial-quote">"Planning the music together was honestly one of the best evenings of our engagement. We ended up in this brilliant conversation about what we actually wanted people to feel — something we'd never really talked about. The brief it produced meant our coordinator knew exactly what to book and in what order. Nothing got lost in translation."</p>
+      <p class="testimonial-attr">— Sarah & Tom Mitchell, married March 2025</p>
+    </div>
+
+    <div class="stat-block">
+      <span class="stat-number gold">100+</span>
       <p class="stat-body">Weddings behind wedin.ai. Every question comes from real experience of what goes right — and what goes wrong.</p>
     </div>
-    <div>
-      <span class="stat-number gold">25 min</span>
-      <p class="stat-body">From first question to complete music plan, ready to send.</p>
+
+    <div class="testimonial-block">
+      <p class="testimonial-quote">"I thought I knew what I wanted musically. Turns out I knew what songs I liked, which is completely different. The conversation changed how we thought about the whole day."</p>
+      <p class="testimonial-attr">— Priya & James Okafor, married November 2024</p>
     </div>
+
   </div>
 </div>
 

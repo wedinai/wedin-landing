@@ -205,21 +205,41 @@
     letter-spacing: 0.04em;
   }
 
-  /* ── SOCIAL PROOF BAR ── */
-  .proof-bar {
-    background: var(--cream);
-    border-top: 1px solid rgba(0,0,0,0.08);
-    border-bottom: 1px solid rgba(0,0,0,0.08);
-    padding: 64px 48px;
+  /* ── BRIDGE SECTION ── */
+  .bridge-section {
+    padding: 80px 48px;
+    max-width: 1100px;
+    margin: 0 auto;
   }
 
-  .proof-bar-inner {
-    max-width: 900px;
-    margin: 0 auto;
+  .bridge-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 48px;
+  }
+
+  .bridge-image {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    border-radius: 16px;
+    display: block;
+    margin-bottom: 48px;
+  }
+
+  .bridge-proof {
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 64px;
     align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
   }
 
   .testimonial-block {
@@ -272,45 +292,6 @@
     line-height: 1.65;
     max-width: 320px;
     margin: 0 auto;
-  }
-
-  /* ── PROBLEM ── */
-  .problem-section {
-    padding: 80px 48px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .problem-headline {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(36px, 5vw, 56px);
-    font-weight: 300;
-    line-height: 1.15;
-    color: var(--navy);
-    margin-bottom: 40px;
-    letter-spacing: -0.01em;
-  }
-
-  .problem-body {
-    font-size: 17px;
-    color: var(--grey);
-    line-height: 1.75;
-    max-width: 640px;
-  }
-
-  .problem-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    align-items: center;
-  }
-
-  .problem-image {
-    width: 100%;
-    min-height: 420px;
-    object-fit: cover;
-    border-radius: 12px;
-    display: block;
   }
 
   /* ── HOW IT WORKS ── */
@@ -735,16 +716,13 @@
       min-height: 320px;
     }
 
-    .proof-bar { padding: 48px 24px; }
-    .proof-bar-inner {
+    .bridge-section { padding: 56px 24px; }
+    .bridge-image { height: 260px; }
+    .bridge-proof {
       grid-template-columns: 1fr;
       gap: 40px;
       text-align: center;
     }
-
-    .problem-section { padding: 56px 24px; }
-    .problem-inner { grid-template-columns: 1fr; gap: 32px; }
-    .problem-image { min-height: unset; height: 280px; }
     .how-section { padding: 56px 24px; }
     .steps { grid-template-columns: 1fr; gap: 40px; }
 
@@ -816,9 +794,11 @@
   </div>
 </section>
 
-<!-- ── SOCIAL PROOF BAR ── -->
-<div class="proof-bar">
-  <div class="proof-bar-inner">
+<!-- ── BRIDGE ── -->
+<section class="bridge-section">
+  <h2 class="bridge-headline">You already know the music matters. Most couples only find out how much when it's too late.</h2>
+  <img src="weddin.ai-2.jpg" alt="A wedding moment" class="bridge-image">
+  <div class="bridge-proof">
 
     <div class="testimonial-block">
       <p class="testimonial-quote">"Planning the music together was one of the best evenings of our engagement. The brief it produced meant our coordinator knew exactly what to book, nothing got lost in translation, and the music was awesome."</p>
@@ -830,16 +810,6 @@
       <p class="stat-body">Weddings behind wedin.ai. Every question comes from real experience of what goes right — and what goes wrong.</p>
     </div>
 
-  </div>
-</div>
-
-<!-- ── THE PROBLEM ── -->
-<section class="problem-section">
-  <div class="problem-inner">
-    <img src="weddin.ai-2.jpg" alt="A wedding moment" class="problem-image">
-    <div>
-      <h2 class="problem-headline">You already know the music matters. Most couples only find out how much when it's too late.</h2>
-    </div>
   </div>
 </section>
 

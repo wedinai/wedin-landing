@@ -143,7 +143,7 @@
   /* ── HERO ── */
   .hero {
     min-height: 100vh;
-    padding: 120px 48px 80px;
+    padding: 80px 48px 64px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 64px;
@@ -208,9 +208,9 @@
   /* ── SOCIAL PROOF BAR ── */
   .proof-bar {
     background: var(--cream);
-    border-top: 1px solid rgba(28,43,58,0.07);
-    border-bottom: 1px solid rgba(28,43,58,0.07);
-    padding: 56px 48px;
+    border-top: 1px solid rgba(0,0,0,0.08);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    padding: 48px 48px;
   }
 
   .proof-bar-inner {
@@ -244,8 +244,8 @@
 
   /* ── PROBLEM ── */
   .problem-section {
-    padding: 120px 48px;
-    max-width: 900px;
+    padding: 80px 48px;
+    max-width: 1100px;
     margin: 0 auto;
   }
 
@@ -266,9 +266,24 @@
     max-width: 640px;
   }
 
+  .problem-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .problem-image {
+    width: 100%;
+    min-height: 420px;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+  }
+
   /* ── HOW IT WORKS ── */
   .how-section {
-    padding: 120px 48px;
+    padding: 80px 48px;
     max-width: 1100px;
     margin: 0 auto;
   }
@@ -280,8 +295,10 @@
     line-height: 1.1;
     color: var(--navy);
     max-width: 520px;
-    margin-bottom: 80px;
+    margin-bottom: 48px;
   }
+
+  .how-section .label { margin-bottom: 14px; }
 
   .steps {
     display: grid;
@@ -321,9 +338,31 @@
     color: var(--grey);
   }
 
+  /* ── EDITORIAL PLACEHOLDER ── */
+  .editorial-placeholder {
+    width: 100%;
+    min-height: 480px;
+    border-radius: 12px;
+    border: 2px dashed rgba(0,0,0,0.15);
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 64px;
+  }
+
+  .editorial-placeholder-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.15);
+  }
+
   /* ── NINE MOMENTS ── */
   .moments-section {
-    padding: 120px 48px;
+    padding: 80px 48px;
     max-width: 1100px;
     margin: 0 auto;
   }
@@ -375,7 +414,7 @@
 
   /* ── WHAT YOU GET ── */
   .deliverables-section {
-    padding: 120px 48px;
+    padding: 80px 48px;
     background: var(--cream);
     border-top: 1px solid rgba(28,43,58,0.07);
   }
@@ -433,7 +472,7 @@
   /* ── PRICING ── */
   .pricing-section {
     background: var(--navy);
-    padding: 120px 48px;
+    padding: 80px 48px;
     text-align: center;
   }
 
@@ -509,7 +548,7 @@
 
   /* ── CLOSING CTA ── */
   .closing-section {
-    padding: 160px 48px;
+    padding: 80px 48px;
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
@@ -610,7 +649,7 @@
 
     .hero {
       grid-template-columns: 1fr;
-      padding: 96px 24px 64px;
+      padding: 56px 24px 56px;
       gap: 48px;
       min-height: auto;
     }
@@ -623,26 +662,29 @@
       min-height: 320px;
     }
 
-    .proof-bar { padding: 48px 24px; }
+    .proof-bar { padding: 36px 24px; }
     .proof-bar-inner {
       grid-template-columns: 1fr;
       gap: 40px;
       max-width: 100%;
     }
 
-    .problem-section { padding: 80px 24px; }
-    .how-section { padding: 80px 24px; }
+    .problem-section { padding: 56px 24px; }
+    .problem-inner { grid-template-columns: 1fr; gap: 32px; }
+    .problem-image { min-height: unset; height: 280px; }
+    .how-section { padding: 56px 24px; }
     .steps { grid-template-columns: 1fr; gap: 40px; }
 
-    .moments-section { padding: 80px 24px; }
+    .editorial-placeholder { min-height: 280px; }
+    .moments-section { padding: 56px 24px; }
     .moments-grid { grid-template-columns: 1fr; gap: 12px; }
 
-    .deliverables-section { padding: 80px 24px; }
+    .deliverables-section { padding: 56px 24px; }
     .deliverables-grid { grid-template-columns: 1fr; gap: 20px; }
 
-    .pricing-section { padding: 80px 24px; }
+    .pricing-section { padding: 56px 24px; }
 
-    .closing-section { padding: 96px 24px; }
+    .closing-section { padding: 56px 24px; }
 
     footer {
       padding: 32px 24px;
@@ -711,8 +753,13 @@
 
 <!-- ── THE PROBLEM ── -->
 <section class="problem-section">
-  <h2 class="problem-headline">Most couples spend more time choosing a napkin colour than planning their music.</h2>
-  <p class="problem-body">The soul of the day — the thing that moves your guests from one moment to the next, that sets the tone for everything. It deserves more than a last-minute playlist.</p>
+  <div class="problem-inner">
+    <div>
+      <h2 class="problem-headline">Most couples spend more time choosing a napkin colour than planning their music.</h2>
+      <p class="problem-body">The soul of the day — the thing that moves your guests from one moment to the next, that sets the tone for everything. It deserves more than a last-minute playlist.</p>
+    </div>
+    <img src="weddin.ai-2.jpg" alt="A wedding moment" class="problem-image">
+  </div>
 </section>
 
 <div class="divider"></div>
@@ -741,6 +788,10 @@
       <h3 class="step-title">Your brief, ready to send</h3>
       <p class="step-body">A written music brief mapped to your timeline. A Spotify playlist of your wedding soundtrack. Your coordinator gets a copy. Your band, DJ, or string quartet arrives knowing exactly what you want — specific instructions, not guesswork.</p>
     </div>
+  </div>
+
+  <div class="editorial-placeholder">
+    <span class="editorial-placeholder-text">Image coming soon</span>
   </div>
 </section>
 

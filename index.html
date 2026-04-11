@@ -399,15 +399,31 @@
     margin: 0 auto;
   }
 
+  .moments-header {
+    display: grid;
+    grid-template-columns: 55% 45%;
+    gap: 48px;
+    align-items: end;
+    margin-bottom: 64px;
+  }
+
   .moments-headline {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(40px, 5.5vw, 60px);
     font-weight: 300;
     line-height: 1.1;
     color: var(--navy);
-    max-width: 520px;
-    margin-bottom: 64px;
+    margin: 0;
     letter-spacing: -0.01em;
+  }
+
+  .moments-subhead {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--grey);
+    line-height: 1.6;
+    margin: 0;
   }
 
   .moments-grid {
@@ -737,6 +753,8 @@
 
     .editorial-placeholder { min-height: 280px; }
     .moments-section { padding: 56px 24px; }
+    .moments-header { grid-template-columns: 1fr; gap: 0; }
+    .moments-subhead { font-size: 16px; margin-top: 20px; }
     .moments-grid { grid-template-columns: 1fr; gap: 12px; }
 
     .deliverables-section { padding: 56px 24px; }
@@ -836,7 +854,10 @@
 <!-- ── NINE MOMENTS ── -->
 <section class="moments-section" id="nine-moments">
   <span class="label">Every moment, considered</span>
-  <h2 class="moments-headline">Nine moments.<br>One complete day.</h2>
+  <div class="moments-header">
+    <h2 class="moments-headline">Nine moments.<br>One complete day.</h2>
+    <p class="moments-subhead">Every moment of your wedding day carries a feeling. These are the nine that matter most.</p>
+  </div>
 
   <div class="moments-grid">
     <div class="moment-card">

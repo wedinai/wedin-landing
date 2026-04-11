@@ -527,12 +527,16 @@
   .pricing-section {
     background: var(--navy);
     padding: 80px 48px;
-    text-align: center;
   }
 
   .pricing-inner {
-    max-width: 600px;
+    max-width: 960px;
     margin: 0 auto;
+  }
+
+  .pricing-header {
+    text-align: center;
+    margin-bottom: 64px;
   }
 
   .pricing-section .label { color: var(--cream); justify-content: center; }
@@ -543,8 +547,14 @@
     font-weight: 300;
     line-height: 1.1;
     color: var(--cream);
-    margin-bottom: 48px;
     letter-spacing: -0.01em;
+  }
+
+  .pricing-columns {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 64px;
+    align-items: center;
   }
 
   .pricing-amount {
@@ -563,34 +573,11 @@
     font-size: 15px;
     font-weight: 400;
     color: rgba(250,247,242,0.65);
-    margin-bottom: 48px;
+    margin-bottom: 0;
   }
 
-  .pricing-list {
-    list-style: none;
-    text-align: left;
-    max-width: 340px;
-    margin: 0 auto 48px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .pricing-list li {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
-    color: var(--cream);
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .pricing-list li::before {
-    content: '✓';
-    color: var(--gold);
-    font-weight: 500;
-    font-size: 14px;
-    flex-shrink: 0;
+  .pricing-cta-wrap {
+    margin-top: 48px;
   }
 
   .pricing-small {
@@ -598,6 +585,22 @@
     color: rgba(250,247,242,0.45);
     margin-top: 16px;
     line-height: 1.6;
+  }
+
+  .pricing-list {
+    list-style: none;
+  }
+
+  .pricing-list li {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    color: var(--cream);
+    line-height: 2.2;
+  }
+
+  .pricing-list li::before {
+    content: '— ';
+    color: var(--gold);
   }
 
   /* ── CLOSING CTA ── */
@@ -736,6 +739,11 @@
 
     .portrait-intro-section { padding: 56px 24px; }
     .pricing-section { padding: 56px 24px; }
+    .pricing-columns { grid-template-columns: 1fr; gap: 40px; }
+    .pricing-amount { text-align: center; }
+    .pricing-note { text-align: center; }
+    .pricing-cta-wrap { display: flex; flex-direction: column; align-items: center; }
+    .pricing-small { text-align: center; }
 
     .closing-section { padding: 56px 24px; }
 
@@ -934,23 +942,36 @@
 <!-- ── PRICING ── -->
 <section class="pricing-section">
   <div class="pricing-inner">
-    <span class="label" style="color:rgba(250,247,242,0.55); display:block; margin-bottom:24px;">Simple pricing</span>
-    <h2 class="pricing-headline">One fee. Your complete music plan.</h2>
 
-    <span class="pricing-amount">R699</span>
-    <p class="pricing-note">One-time payment. No subscription.</p>
+    <div class="pricing-header">
+      <span class="label" style="color:rgba(250,247,242,0.55); display:block; margin-bottom:24px;">Simple pricing</span>
+      <h2 class="pricing-headline">One fee. Your complete music plan.</h2>
+    </div>
 
-    <ul class="pricing-list">
-      <li>Discovery session — free, no account needed</li>
-      <li>A guided conversation through every moment of your day</li>
-      <li>A complete music brief, ready to send</li>
-      <li>A coordinator's brief — if you have one, they'll know exactly what to do</li>
-      <li>A Spotify playlist of your wedding soundtrack</li>
-      <li>Specific instructions for every act you book</li>
-    </ul>
+    <div class="pricing-columns">
 
-    <a href="https://wedin-ai-app.netlify.app" class="btn-primary-light">Start planning →</a>
-    <p class="pricing-small">Start with the free discovery session.<br>Pay only when you're ready to build your plan.</p>
+      <div class="pricing-left">
+        <span class="pricing-amount">R699</span>
+        <p class="pricing-note">One-time payment. No subscription.</p>
+        <div class="pricing-cta-wrap">
+          <a href="https://wedin-ai-app.netlify.app" class="btn-primary-light">Start planning →</a>
+          <p class="pricing-small">Start with the free discovery session. Pay only when you're ready to build your plan.</p>
+        </div>
+      </div>
+
+      <div class="pricing-right">
+        <ul class="pricing-list">
+          <li>Discovery session — free, no account needed</li>
+          <li>A guided conversation through every moment of your day</li>
+          <li>A complete music brief, ready to send</li>
+          <li>A coordinator's brief — if you have one, they'll know exactly what to do</li>
+          <li>A Spotify playlist of your wedding soundtrack</li>
+          <li>Specific instructions for every act you book</li>
+        </ul>
+      </div>
+
+    </div>
+
   </div>
 </section>
 

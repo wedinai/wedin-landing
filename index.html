@@ -4,13 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>wedin.ai — Start with the music.</title>
-<meta name="description" content="An AI-powered wedding music planning companion. Tell us how you want the day to feel. We map every moment and generate a complete brief for your coordinator and acts.">
+<meta name="description" content="An AI-powered wedding music planning companion. Tell us how you want the day to feel. We map every moment and generate your wedding soundtrack, music plan, coordinator brief, and budget guide — ready to share.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 
-  /* ── RESET + ROOT ── */
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
@@ -33,7 +32,6 @@
     overflow-x: hidden;
   }
 
-  /* ── TYPOGRAPHY HELPERS ── */
   .label {
     font-family: 'DM Sans', sans-serif;
     font-size: 11px;
@@ -47,7 +45,6 @@
 
   .gold { color: var(--gold); }
 
-  /* ── BUTTONS ── */
   .btn-primary {
     display: inline-block;
     font-family: 'DM Sans', sans-serif;
@@ -96,21 +93,6 @@
     transform: translateY(-1px);
   }
 
-  .btn-ghost {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
-    font-weight: 400;
-    color: var(--navy);
-    text-decoration: none;
-    transition: gap 0.2s;
-    white-space: nowrap;
-  }
-  .btn-ghost:hover { gap: 14px; }
-  .btn-ghost .arr { color: var(--gold); font-size: 18px; }
-
   .btn-outlined-gold {
     display: inline-block;
     font-family: 'DM Sans', sans-serif;
@@ -135,7 +117,6 @@
     transform: translateY(-1px);
   }
 
-  /* ── NAV ── */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -164,7 +145,6 @@
     text-decoration: none;
   }
 
-  /* ── HERO ── */
   .hero {
     min-height: 100vh;
     padding: 80px 48px 64px;
@@ -220,16 +200,6 @@
     box-shadow: 0 8px 40px rgba(28,43,58,0.07);
   }
 
-  .placeholder-text {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 300;
-    color: var(--grey);
-    opacity: 0.5;
-    letter-spacing: 0.04em;
-  }
-
-  /* ── BRIDGE SECTION ── */
   .bridge-section {
     padding: 80px 48px;
     max-width: 1100px;
@@ -318,7 +288,6 @@
     margin: 0 auto;
   }
 
-  /* ── HOW IT WORKS ── */
   .how-section {
     padding: 80px 48px;
     max-width: 1100px;
@@ -339,7 +308,6 @@
     font-family: 'DM Sans', sans-serif;
     font-size: 18px;
     font-weight: 400;
-    font-style: normal;
     color: var(--grey);
     margin-top: 24px;
     margin-bottom: 48px;
@@ -359,7 +327,6 @@
     font-size: 48px;
     font-weight: 300;
     color: var(--gold);
-    opacity: 1;
     line-height: 1;
     letter-spacing: -0.02em;
     margin-bottom: 12px;
@@ -387,38 +354,13 @@
     color: var(--grey);
   }
 
-  /* ── EDITORIAL PLACEHOLDER ── */
-  .editorial-placeholder {
-    width: 100%;
-    min-height: 480px;
-    border-radius: 12px;
-    border: 2px dashed rgba(0,0,0,0.15);
-    background-color: transparent;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 64px;
-  }
-
-  .editorial-placeholder-text {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(0,0,0,0.15);
-  }
-
-  /* ── NINE MOMENTS ── */
   .moments-section {
     padding: 80px 48px;
     max-width: 1100px;
     margin: 0 auto;
   }
 
-  .moments-header {
-    margin-bottom: 64px;
-  }
+  .moments-header { margin-bottom: 64px; }
 
   .moments-headline {
     font-family: 'Cormorant Garamond', serif;
@@ -474,7 +416,6 @@
     line-height: 1.6;
   }
 
-  /* ── WHAT YOU GET ── */
   .deliverables-section {
     padding: 80px 48px;
     background: var(--cream);
@@ -483,58 +424,6 @@
 
   .deliverables-inner {
     max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .deliverables-headline {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(36px, 5vw, 52px);
-    font-weight: 300;
-    line-height: 1.1;
-    color: var(--navy);
-    max-width: 560px;
-    margin-bottom: 64px;
-    letter-spacing: -0.01em;
-  }
-
-  .deliverables-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-  }
-
-  .deliverable-card {
-    background: var(--white);
-    border: 1px solid rgba(28,43,58,0.06);
-    border-radius: 16px;
-    padding: 32px 28px;
-  }
-
-  .deliverable-icon {
-    width: 40px;
-    height: 40px;
-    color: var(--gold);
-    margin-bottom: 20px;
-  }
-
-  .deliverable-title {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 17px;
-    font-weight: 500;
-    color: var(--navy);
-    margin-bottom: 12px;
-  }
-
-  .deliverable-body {
-    font-size: 15px;
-    color: var(--grey);
-    line-height: 1.7;
-  }
-
-  /* ── PORTRAIT INTRO ── */
-  .portrait-intro-section {
-    padding: 80px 48px;
-    max-width: 760px;
     margin: 0 auto;
   }
 
@@ -555,11 +444,33 @@
     margin-bottom: 24px;
   }
 
-  .portrait-intro-body:last-of-type {
-    margin-bottom: 40px;
+  .deliverables-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
   }
 
-  /* ── PRICING ── */
+  .deliverable-card {
+    background: var(--white);
+    border: 1px solid rgba(28,43,58,0.06);
+    border-radius: 16px;
+    padding: 32px 28px;
+  }
+
+  .deliverable-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+
+  .deliverable-body {
+    font-size: 15px;
+    color: var(--grey);
+    line-height: 1.7;
+  }
+
   .pricing-section {
     background: var(--navy);
     padding: 80px 48px;
@@ -574,8 +485,6 @@
     text-align: center;
     margin-bottom: 64px;
   }
-
-  .pricing-section .label { color: var(--cream); justify-content: center; }
 
   .pricing-headline {
     font-family: 'Cormorant Garamond', serif;
@@ -612,9 +521,7 @@
     margin-bottom: 0;
   }
 
-  .pricing-cta-wrap {
-    margin-top: 48px;
-  }
+  .pricing-cta-wrap { margin-top: 48px; }
 
   .pricing-small {
     font-size: 13px;
@@ -623,9 +530,7 @@
     line-height: 1.6;
   }
 
-  .pricing-list {
-    list-style: none;
-  }
+  .pricing-list { list-style: none; }
 
   .pricing-list li {
     font-family: 'DM Sans', sans-serif;
@@ -639,7 +544,6 @@
     color: var(--gold);
   }
 
-  /* ── CLOSING CTA ── */
   .closing-section {
     padding: 80px 48px;
     text-align: center;
@@ -664,7 +568,6 @@
     margin-bottom: 48px;
   }
 
-  /* ── FOOTER ── */
   footer {
     padding: 40px 48px;
     border-top: 1px solid rgba(28,43,58,0.08);
@@ -703,10 +606,7 @@
     opacity: 0.65;
   }
 
-  .footer-links {
-    display: flex;
-    gap: 16px;
-  }
+  .footer-links { display: flex; gap: 16px; }
 
   .footer-links a {
     font-size: 12px;
@@ -717,14 +617,12 @@
   }
   .footer-links a:hover { opacity: 1; }
 
-  /* ── DIVIDER ── */
   .divider {
     height: 1px;
     background: rgba(28,43,58,0.07);
     margin: 0 48px;
   }
 
-  /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -736,7 +634,6 @@
   .fade-in.d3 { animation-delay: 0.45s; }
   .fade-in.d4 { animation-delay: 0.6s; }
 
-  /* ── MOBILE ── */
   @media (max-width: 768px) {
     nav { padding: 18px 24px; }
 
@@ -757,77 +654,39 @@
 
     .bridge-section { padding: 56px 24px; }
     .bridge-image { height: 260px; }
-    .bridge-proof {
-      grid-template-columns: 1fr;
-      gap: 40px;
-      text-align: center;
-    }
+    .bridge-proof { grid-template-columns: 1fr; gap: 40px; text-align: center; }
     .how-section { padding: 56px 24px; }
     .how-subtitle { font-size: 16px; }
     .steps { grid-template-columns: 1fr; gap: 40px; }
-
-    .editorial-placeholder { min-height: 280px; }
     .moments-section { padding: 56px 24px; }
     .moments-subhead { font-size: 16px; }
     .moments-grid { grid-template-columns: 1fr; gap: 12px; }
-
     .deliverables-section { padding: 56px 24px; }
     .deliverables-grid { grid-template-columns: 1fr; gap: 20px; }
-
-    .portrait-intro-section { padding: 56px 24px; }
     .pricing-section { padding: 56px 24px; }
     .pricing-columns { grid-template-columns: 1fr; gap: 40px; }
     .pricing-amount { text-align: center; }
     .pricing-note { text-align: center; }
     .pricing-cta-wrap { display: flex; flex-direction: column; align-items: center; }
     .pricing-small { text-align: center; }
-
     .closing-section { padding: 56px 24px; }
-
-    footer {
-      padding: 32px 24px;
-      flex-direction: column;
-      text-align: center;
-      gap: 16px;
-    }
-
+    footer { padding: 32px 24px; flex-direction: column; text-align: center; gap: 16px; }
     .footer-right { align-items: center; }
-
     .divider { margin: 0 24px; }
-
-    /* ── Nav ── */
-    .nav-inner { gap: 12px; }
-    .nav-cta .btn-primary { font-size: 13px; padding: 10px 16px; }
-
-    /* ── Hero ── */
     .hero-headline { font-size: 40px; }
     .hero-actions { flex-direction: column; gap: 12px; }
-    .hero-actions .btn-primary,
-    .hero-actions .btn-ghost { width: 100%; text-align: center; box-sizing: border-box; }
-
-    /* ── Bridge ── */
+    .hero-actions .btn-primary { width: 100%; text-align: center; box-sizing: border-box; }
     .bridge-headline { font-size: 32px; }
     .stat-number { font-size: 40px; }
     .testimonial-quote { font-size: 17px; }
-
-    /* ── How It Works ── */
     .how-headline { font-size: 32px; }
-
-    /* ── Moments ── */
     .moments-headline { font-size: 32px; }
-    .moments-subhead { font-size: 15px; }
     .moment-card { padding: 20px 16px; }
     .moment-name { font-size: 18px; }
-
-    /* ── Deliverables ── */
     .portrait-intro-headline { font-size: 32px; }
     .portrait-intro-body { font-size: 15px; }
     .deliverable-card { padding: 24px 20px; }
-
-    /* ── Pricing ── */
     .pricing-amount { font-size: 56px; }
-
-    /* ── Closing ── */
     .closing-headline { font-size: 32px; }
     .closing-sub { font-size: 15px; }
   }
@@ -841,13 +700,13 @@
 </head>
 <body>
 
-<!-- ── NAV ── -->
+<!-- NAV -->
 <nav id="main-nav">
   <a href="#" class="wordmark">wedin.ai</a>
-  <a href="https://wedin-ai-app.netlify.app" class="btn-primary">Start planning →</a>
+  <a href="https://wedin-ai-app.netlify.app" class="btn-primary">Start with the music →</a>
 </nav>
 
-<!-- ── HERO ── -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-text">
     <span class="label fade-in d1">Wedding music planning</span>
@@ -874,35 +733,31 @@
   </div>
 </section>
 
-<!-- ── BRIDGE ── -->
+<!-- BRIDGE -->
 <section class="bridge-section">
   <h2 class="bridge-headline">You already know the music matters. Most couples only find out how much when it's too late.</h2>
   <img src="weddin.ai-4-2.jpg" alt="A wedding moment" class="bridge-image">
   <div class="bridge-proof">
-
     <div class="testimonial-block">
       <p class="testimonial-quote">"Planning the music together was one of the best evenings of our engagement. The brief it produced meant our coordinator knew exactly what to book, nothing got lost in translation, and the music was awesome."</p>
       <p class="testimonial-attr">— Sarah & Tom Mitchell, married March 2025</p>
     </div>
-
     <div class="stat-block">
       <span class="stat-number gold">100+</span>
       <p class="stat-body">Weddings behind wedin.ai. Every question comes from real experience of what goes right — and what goes wrong.</p>
     </div>
-
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ── NINE MOMENTS ── -->
+<!-- NINE MOMENTS -->
 <section class="moments-section" id="nine-moments">
   <span class="label">Every moment, considered</span>
   <div class="moments-header">
     <h2 class="moments-headline">Nine moments.<br>One complete day.</h2>
     <p class="moments-subhead">Every moment of your wedding day carries a feeling. These are the nine that matter most.</p>
   </div>
-
   <div class="moments-grid">
     <div class="moment-card">
       <p class="moment-name">Guest Arrivals</p>
@@ -945,12 +800,11 @@
 
 <div class="divider"></div>
 
-<!-- ── HOW IT WORKS ── -->
+<!-- HOW IT WORKS -->
 <section class="how-section" id="how-it-works">
   <span class="label">How it works</span>
   <h2 class="how-headline">The right questions, in the right order.</h2>
   <p class="how-subtitle">A guided conversation through each important moment of your day.</p>
-
   <div class="steps">
     <div class="step">
       <div class="step-number">01</div>
@@ -962,30 +816,29 @@
       <div class="step-number">02</div>
       <div class="step-divider"></div>
       <h3 class="step-title">We walk you through each moment</h3>
-      <p class="step-body">From the processional to the last song, each special moment of your day gets the attention it deserves. Nothing left unthought.</p>
+      <p class="step-body">From the processional to the last song, each moment of your day gets the attention it deserves. Nothing left unthought.</p>
     </div>
     <div class="step">
       <div class="step-number">03</div>
       <div class="step-divider"></div>
-      <h3 class="step-title">Your brief, ready to send</h3>
-      <p class="step-body">A written music brief mapped to your timeline. A Spotify playlist of your wedding soundtrack. If you have a coordinator, they get a copy. Your band, DJ, or string quartet arrives knowing exactly what you want — specific instructions, not guesswork.</p>
+      <h3 class="step-title">Your wedding soundtrack and music plan, ready to share</h3>
+      <p class="step-body">Your wedding soundtrack — a written reflection of how every moment of your day should feel. A music plan your coordinator can act on. A Spotify playlist to share with every act you speak to. And a budget guide so you know what to expect before the first quote lands.</p>
     </div>
   </div>
-
 </section>
 
 <div class="divider"></div>
 
-<!-- ── WHAT YOU GET ── -->
+<!-- WHAT YOU GET -->
 <section class="deliverables-section">
   <div class="deliverables-inner">
     <span class="label">What you get</span>
 
-    <div style="max-width:760px;">
+    <div style="max-width:760px; margin-bottom: 48px;">
       <h2 class="portrait-intro-headline">Start with your portrait. It's free.</h2>
       <p class="portrait-intro-body">Before anything else, wedin.ai builds you a music portrait — a written reflection of your musical character as a couple. Not a genre list. Not a mood board. Something drawn from the questions nobody else thinks to ask — what's actually playing at home on a Sunday, the song that makes you both stop, the feeling you want your guests to carry home at the end of the night.</p>
       <p class="portrait-intro-body">It captures who you actually are, musically. And it becomes the foundation everything else is built from.</p>
-      <p class="portrait-intro-body">It takes about twenty minutes. You'll want to do it together.</p>
+      <p class="portrait-intro-body" style="margin-bottom: 40px;">It takes about twenty minutes. You'll want to do it together.</p>
       <a href="https://wedin-ai-app.netlify.app" class="btn-primary">Get your free music portrait →</a>
     </div>
 
@@ -994,13 +847,23 @@
     <div class="deliverables-grid">
 
       <div class="deliverable-card">
-        <h3 class="deliverable-title">Your music brief</h3>
-        <p class="deliverable-body">Every moment of your day, mapped in writing — guest arrivals through to the last song. Specific enough to send to a band before you've even met them. When you walk into that first meeting, you'll already know exactly what you want.</p>
+        <h3 class="deliverable-title">Your wedding soundtrack</h3>
+        <p class="deliverable-body">A written reflection of how every moment of your day should feel — guest arrivals through to the last song. Something to read together, share with family, and carry into every music conversation you have from here.</p>
       </div>
 
       <div class="deliverable-card">
-        <h3 class="deliverable-title">Your coordinator's brief</h3>
+        <h3 class="deliverable-title">Your music plan</h3>
+        <p class="deliverable-body">Every moment of your day, mapped — act recommendations, reasoning, and specific instructions. Specific enough to brief a band before you've even met them. When you walk into that first conversation, you'll already know exactly what you want.</p>
+      </div>
+
+      <div class="deliverable-card">
+        <h3 class="deliverable-title">Your coordinator brief</h3>
         <p class="deliverable-body">If you're working with a coordinator or planner, there's a separate document written directly to them — your taste, your approach, your priorities, in language they can act on from day one. Most planners have never received anything like it.</p>
+      </div>
+
+      <div class="deliverable-card">
+        <h3 class="deliverable-title">Your budget guide</h3>
+        <p class="deliverable-body">An illustrative cost breakdown for every moment, a booking timeline, and a hidden costs checklist — in a spreadsheet you can update as real quotes come in. Market reference ranges for the SA wedding music market, so you know what to expect before the first conversation.</p>
       </div>
 
       <div class="deliverable-card">
@@ -1012,43 +875,38 @@
   </div>
 </section>
 
-<!-- ── PRICING ── -->
+<!-- PRICING -->
 <section class="pricing-section">
   <div class="pricing-inner">
-
     <div class="pricing-header">
       <span class="label" style="color:rgba(250,247,242,0.55); display:block; margin-bottom:24px;">Simple pricing</span>
-      <h2 class="pricing-headline">One fee. Your complete music plan.</h2>
+      <h2 class="pricing-headline">One fee. Everything you need to get the music right.</h2>
     </div>
-
     <div class="pricing-columns">
-
       <div class="pricing-left">
         <span class="pricing-amount">R699</span>
         <p class="pricing-note">One-time payment. No subscription.</p>
         <div class="pricing-cta-wrap">
-          <a href="https://wedin-ai-app.netlify.app" class="btn-primary-light">Start planning →</a>
+          <a href="https://wedin-ai-app.netlify.app" class="btn-primary-light">Start with the music →</a>
           <p class="pricing-small">Start with the free discovery session. Pay only when you're ready to build your plan.</p>
         </div>
       </div>
-
       <div class="pricing-right">
         <ul class="pricing-list">
           <li>Discovery session — free, no account needed</li>
           <li>A guided conversation through every moment of your day</li>
-          <li>A complete music brief, ready to send</li>
-          <li>A coordinator's brief — if you have one, they'll know exactly what to do</li>
-          <li>A Spotify playlist of your wedding soundtrack</li>
-          <li>Specific instructions for every act you book</li>
+          <li>Your wedding soundtrack — how your day sounds, in writing</li>
+          <li>Your music plan — act recommendations and instructions for every moment</li>
+          <li>Your coordinator brief — ready to send to whoever is managing music on the day</li>
+          <li>Your Spotify playlist — every song you named, plus songs that sound like your day</li>
+          <li>Your budget guide — illustrative costs, booking timeline, and hidden costs checklist</li>
         </ul>
       </div>
-
     </div>
-
   </div>
 </section>
 
-<!-- ── CLOSING CTA ── -->
+<!-- CLOSING CTA -->
 <section class="closing-section">
   <h2 class="closing-headline">This might be one of the best conversations you have while planning your wedding.</h2>
   <p class="closing-sub">Find a quiet hour, just the two of you.</p>
@@ -1056,7 +914,7 @@
   <a href="https://wedin-ai-app.netlify.app" class="btn-outlined-gold">Start the conversation →</a>
 </section>
 
-<!-- ── FOOTER ── -->
+<!-- FOOTER -->
 <footer>
   <a href="#" class="footer-wordmark">wedin.ai</a>
   <span class="footer-tagline">Start with the music.</span>
@@ -1070,7 +928,6 @@
 </footer>
 
 <script>
-  // Nav scroll shadow
   const nav = document.getElementById('main-nav');
   window.addEventListener('scroll', function() {
     if (window.scrollY > 8) {
